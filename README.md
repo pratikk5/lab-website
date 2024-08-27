@@ -1,2 +1,2 @@
 # lab-website 
-#frontend+backend
+frontend+backend
