@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cart quantity</title>
+</head>
+
+<body>
+  <button onclick="
+    console.log(`Cart Quantity :${cartQuantity}`);
+    ">Show quantity</button>
+
+
+  <button onclick="
+  if(cartQuantity +1 >10){
+    alert('Cart quantity is full Dont update the cart');
+  }else{
+    cartQuantity++;
+    console.log(`Cart Quantity :${cartQuantity}`);}
+  ">Add to cart </button>
+
+
+  <button onclick="
+    if(cartQuantity +2 >10){
+    alert('Cart quantity is full Dont update the cart');
+  }else{
+    cartQuantity+=2;
+    console.log(`Cart Quantity :${cartQuantity}`);}
+  "> +2</button>
+
+
+  <button onclick="
+    if(cartQuantity +3 >10){
+    alert('Cart quantity is full Dont update the cart');
+  }else{
+    cartQuantity+=3;
+    console.log(`Cart Quantity :${cartQuantity}`);}
+  ">+3 </button>
+
+  <button onclick="
+    if(cartQuantity +4 >10){
+    alert('Cart quantity is full Dont update the cart');
+  }else{
+    cartQuantity+=4;
+    console.log(`Cart Quantity :${cartQuantity}`);}
+  ">+4 </button>
+
+
+  <button onclick="
+    if(cartQuantity +5 >10){
+    alert('Cart quantity is full Dont update the cart');
+  }else{
+    cartQuantity+=5;
+    console.log(`Cart Quantity :${cartQuantity}`);}
+  ">+5 </button>
+
+  <button onclick="
+    cartQuantity-=2;
+    console.log(`Cart Quantity :${cartQuantity}`);
+  ">-2 </button>
+
+
+  <button onclick="
+    cartQuantity-=3;
+    console.log(`Cart Quantity :${cartQuantity}`);
+  ">-3 </button>
+
+
+  <button onclick="
+    cartQuantity--;
+    console.log(`Cart Quantity :${cartQuantity}`);
+  ">Remove </button>
+
+
+  <button onclick="
+    cartQuantity=0;
+    console.log('cart was Reset');
+    console.log(`Cart Quantity :${cartQuantity}`);
+  ">Reset cart</button>
+
+  <script>
+    let cartQuantity=0;
+  </script>
+</body>
+
+</html>
