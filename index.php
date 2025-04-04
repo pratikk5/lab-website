@@ -145,8 +145,8 @@
     <section id="contact">
         <h2>Contact Us</h2>
         <p>Email: <a href="mailto:yeshwantmane505@gmail.com">yeshwantmane505@gmail.com</a></p>
-        <p>Phone: <a href="tel:9920361564">9920361564</a></p>
-                 <p><a href="tel:7373739564">7373739564</a></p>
+        <p>Phone: <a href="tel:+9920361564">9920361564</a></p>
+                 <p><a href="tel:+7373739564">7373739564</a></p>
 
         <p>Address: Shri Swami Samarth Apartment, Ground Floor, Shop No.4, Near BMC Hospital, V.N. Purav Marg, Chunabhatti, Mumbai - 400 022 | Hill Road, Opp. Veravil Society, Near Laxmi Medical, Chunabhatti, Mumbai-400 022</p>
         
@@ -154,12 +154,11 @@
         <p>Timings: Mon to Sat 7.30 AM to 10 PM | Sunday 7.30 AM to 2.00 PM</p>
 
     </section>
-
     <footer>
-        <p>&copy; 2024 Shubhangi Lab. All rights reserved.</p>
-    </footer>
+    <p>&copy; <?php echo date("Y"); ?> Shubhangi Lab. All rights reserved.</p>
+</footer>
+
 
     <script src="scripts.js"></script>
 </body>
 </html>
-

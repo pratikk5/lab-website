@@ -1,39 +1,45 @@
 <?php
+// Set timezone (modify as per your location)
+date_default_timezone_set('Asia/Kolkata'); // Example: India timezone
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
     $age = $_POST['age'];
     $gender = $_POST['gender'];
     $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
     $email = $_POST['email'];
-    $appointment_date = $_POST['appointment_date'];
     $other_info = isset($_POST['other_info']) ? $_POST['other_info'] : '';
-
-    $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
-
 
     // Convert tests array to a comma-separated string
     $tests = isset($_POST['tests']) ? implode(', ', $_POST['tests']) : '';
 
-    // Database connection (replace with your actual credentials)
-    $conn = new mysqli('sql110.infinityfree.com', 'if0_37152982', 'rO7wI1Tiz4b','if0_37152982_scpl');
+    // Database connection
+    $conn = new mysqli('', '', '', '');
 
     // Check connection
     if ($conn->connect_error) {
         die('Connection failed: ' . $conn->connect_error);
     }
 
-    // Insert the data into the database
-    $sql = "INSERT INTO scpl (name, age, gender, tests, phone, email, appointment_date, other_info) 
-            VALUES ('$name', '$age', '$gender', '$tests', '$phone', '$email', '$appointment_date', '$other_info')";
+    // Use Prepared Statements to prevent SQL injection
+    $stmt = $conn->prepare("INSERT INTO scpl (name, age, gender, tests, phone, email, appointment_date, other_info) 
+                            VALUES (?, ?, ?, ?, ?, ?, NOW(), ?)");
+    $stmt->bind_param("sisssss", $name, $age, $gender, $tests, $phone, $email, $other_info);
 
-    if ($conn->query($sql) === TRUE) {
-        echo "New appointment booked successfully";
+    if ($stmt->execute()) {
+        echo "<script>
+                alert('New appointment booked successfully!');
+                window.location.href='index.php'; 
+              </script>";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "<script>
+                alert('Error: " . addslashes($stmt->error) . "');
+                window.location.href='index.php';
+              </script>";
     }
 
-    // Close the connection
+    // Close connections
+    $stmt->close();
     $conn->close();
 }
 ?>
-
